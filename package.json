@@ -1,6 +1,6 @@
 {
   "name": "pretty-date",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A Simple and Pretty Date Format",
   "main": "index.js",
   "scripts": {
