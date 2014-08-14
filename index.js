@@ -6,7 +6,7 @@ var MONTHS  = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 
  * @param [object] i18n
  * @return {string}
  */
-module.exports = function (date, i18n) {
+function getPrettyDate (date, i18n) {
     var months = (i18n && i18n.months) || MONTHS;
     return [
         months[date.getMonth()],
@@ -23,15 +23,20 @@ module.exports = function (date, i18n) {
  * @param [object] i18n
  * @return {string}
  */
-module.exports = function (date, i18n) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
+function getPrettyHour (date, i18n) {
+  var am = (i18n && i18n.am) || 'am';
+  var pm = (i18n && i18n.pm) || 'pm';
     return [
-        hours < 13 ? hours : hours-12,
+        date.getHours() < 13 ? date.getHours() : date.getHours()-12,
         ':',
-        minutes < 10 ? '0' : '',
-        minutes,
+        date.getMinutes(),
         ' ',
-        hours < 13 ? 'am' : 'pm',
+        date.getHours() < 13 ? am: pm,
     ].join('');
 }
+
+module.exports = {
+  getPrettyDate: getPrettyDate,
+  getPrettyHour: getPrettyHour
+}
+
