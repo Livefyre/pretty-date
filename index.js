@@ -3,11 +3,13 @@ var MONTHS  = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 
 /**
  * Get a pretty date.
  * @param {Date} date
+ * @param [object] i18n
  * @return {string}
  */
-module.exports = function (date) {
+module.exports = function (date, i18n) {
+    var months = (i18n && i18n.months) || MONTHS;
     return [
-        MONTHS[date.getMonth()],
+        months[date.getMonth()],
         ' ',
         date.getDate(),
         ', ',
