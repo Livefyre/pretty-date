@@ -30,7 +30,7 @@ function getPrettyHour (date, i18n) {
         date.getHours() < 13 ? date.getHours() : date.getHours()-12,
         ':',
         date.getMinutes(),
-        date.getMinutes() < 10 ? '0 ': ' ',
+        date.getMinutes()%10===0 ? '0 ' : ' ',
         date.getHours() < 13 ? am: pm,
     ].join('');
 }
